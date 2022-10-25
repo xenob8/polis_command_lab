@@ -1,9 +1,9 @@
-package org.example;
+package com.example.polis_command_lab;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import static org.example.Constants.LOGIN_PAGE_TITTLE;
+import static com.example.polis_command_lab.Constants.LOGIN_PAGE_TITTLE;
 
 public class LoginPage
 {

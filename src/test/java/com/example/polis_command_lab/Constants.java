@@ -1,4 +1,4 @@
-package org.example;
+package com.example.polis_command_lab;
 
 public abstract class Constants
 {
