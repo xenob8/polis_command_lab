@@ -16,4 +16,6 @@ public abstract class Constants
   public static final String PASSWORD_SENDER="technoPolis2022";
   public static final String USERNAME_RECEIVER="Bot Receiver";
   public static final String USERNAME_SENDER="Bot Sender";
+
+  public static final String MESSAGE = "Message";
 }
