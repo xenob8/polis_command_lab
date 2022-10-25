@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class MessagePage {
     public final WebDriver driver;
-    public final String TITLE = " Одноклассники";
+    public final String TITLE = "Одноклассники";
 
     public final By receiverFriendLocator = By.xpath("//msg-chats-list//a/msg-avatar[@caption='Bot Receiver']");
     public final By senderFriendLocator = By.xpath("//msg-chats-list//a/msg-avatar[@caption='Bot Sender']");

@@ -7,7 +7,8 @@ public abstract class Constants
   }
 
   public static final String DRIVER_NAME="webdriver.gecko.driver";
-  public static final String DRIVER_PATH="/home/serg/driver/geckodriver";
+  public static final String DRIVER_PATH="C:\\webDrivers\\chromeDriver-7\\chromedriver.exe";;
+  public static final String CHROME_PATH = "C:\\Program Files\\Google\\Chrome Beta\\Application\\chrome.exe";
   public static final String LOGIN_PAGE_TITTLE="Социальная сеть Одноклассники. Общение с друзьями в ОК. Ваше место встречи с одноклассниками";
   public static final String URL="https://ok.ru/";
   public static final String LOGIN_RECEIVER="technoPol30";
