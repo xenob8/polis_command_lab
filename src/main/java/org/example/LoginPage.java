@@ -35,7 +35,7 @@ public class LoginPage
   public UserPage submitLogin()
   {
     driver_.findElement(loginButtonLocator_).submit();
-    return new HomePage(driver_);
+    return new UserPage(driver_);
   }
 
   public UserPage loginAs(String username, String password)
