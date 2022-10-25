@@ -3,16 +3,20 @@ package com.example.polis_command_lab;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.text.MessageFormat;
+
 public class MessagePage {
     public final WebDriver driver;
     public final String TITLE = "Одноклассники";
 
-    public final By receiverFriendLocator = By.xpath("//msg-chats-list//a/msg-avatar[@caption='Bot Receiver']");
-    public final By senderFriendLocator = By.xpath("//msg-chats-list//a/msg-avatar[@caption='Bot Sender']");
+    public final String msgDivTemplateXpath = "//msg-chats-list//a/msg-avatar[@caption={0}]";
+    public final String lastMsgTemplateXpath = "//msg-chats-list//a/msg-avatar[@caption={0}]/../div[@data-tsid=\"last_message\"]//msg-parsed-text";
+
+    public By friendLocator;
     public final By activeTypingLocator = By.xpath("//msg-input[@placeholder='Напишите сообщение...']");
     public final By typingField = By.xpath("//msg-input[@placeholder='Напишите сообщение...']/div");
     public final By sendMessageButton = By.xpath("//div[@class='buttons __right']/msg-button[@data-l='t,sendButton']");
-    public final By lastMessageFromSenderLocator = By.xpath("//msg-chats-list//a/msg-avatar[@caption='Bot Sender']/../div[@data-tsid='last_message']//msg-parsed-text");
+    public By lastMessageFromSenderLocator;
 
     public MessagePage(WebDriver driver) {
         this.driver = driver;
@@ -22,18 +26,9 @@ public class MessagePage {
     }
 
     //todoWithParam
-//    public void clickFriend(String friendName){
-//        "//msg-chats-list//a/msg-avatar[@caption={]"
-//        friendLocator = By.xpath("//msg-chats-list//a/msg-avatar[@caption=frien]");
-//    }
-
-    public MessagePage clickSenderFriend() {
-        driver.findElement(senderFriendLocator).click();
-        return this;
-    }
-
-    public MessagePage clickReceiverFriend() {
-        driver.findElement(receiverFriendLocator).click();
+    public MessagePage clickFriend(String friendName) {
+        friendLocator = By.xpath(MessageFormat.format(msgDivTemplateXpath, "'" + friendName + "'"));
+        driver.findElement(friendLocator).click();
         return this;
     }
 
@@ -47,20 +42,22 @@ public class MessagePage {
         return this;
     }
 
-    public MessagePage sendMessage() {
+    public MessagePage sumbitMessage() {
         driver.findElement(sendMessageButton).click();
         return this;
     }
 
-    public MessagePage sendMessageToReceiver(String message) {
-        clickReceiverFriend();
+    public MessagePage sendMessage(String receiver, String message) {
+        clickFriend(receiver);
         activeTypeField();
         typeMessage(message);
-        sendMessage();
+        sumbitMessage();
         return this;
     }
 
-    public String getLastMessageFromSender(){
+    public String getLastMessageFrom(String username) {
+        String lastMsgStr = MessageFormat.format(lastMsgTemplateXpath, "'" + username + "'");
+        lastMessageFromSenderLocator = By.xpath(lastMsgStr);
         return driver.findElement(lastMessageFromSenderLocator).getText();
     }
 
