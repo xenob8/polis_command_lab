@@ -34,7 +34,7 @@ public class DialogueTest
     MessagePage messagePage = userPage.clickMessageButton();
     messagePage = messagePage.sendMessageToReceiver(MESSAGE);
   }
-  @Test 
+  @Test
   public void messageReceiveCheck(){
     LoginPage loginPage = new LoginPage(driver_);
     UserPage userPage = loginPage.loginAs(LOGIN_RECEIVER, PASSWORD_RECEIVER);

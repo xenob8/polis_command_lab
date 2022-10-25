@@ -19,8 +19,7 @@ public class UserPage
 
     public MessagePage clickMessageButton()
     {
-        WebElement messageButton=new WebDriverWait(driver, Duration.ofSeconds(10)).until(driver_ -> driver_.findElement(messageLocator));
-        messageButton.click();
+        driver.findElement(messageLocator).click();
         return new MessagePage(driver);
     }
 }
