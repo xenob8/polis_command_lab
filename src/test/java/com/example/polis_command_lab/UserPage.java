@@ -2,11 +2,15 @@ package com.example.polis_command_lab;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class UserPage
 {
     protected WebDriver driver;
-    private final By messageLocator = By.xpath("//*[@class='toolbar_nav_i_ic'");
+    private final By messageLocator = By.xpath("//*[@class='toolbar_nav_i_ic']");
 
     public UserPage(WebDriver driver)
     {
@@ -15,8 +19,8 @@ public class UserPage
 
     public MessagePage clickMessageButton()
     {
-        driver.findElement(messageLocator).click();
-
+        WebElement messageButton=new WebDriverWait(driver, Duration.ofSeconds(10)).until(driver_ -> driver_.findElement(messageLocator));
+        messageButton.click();
         return new MessagePage(driver);
     }
 }
