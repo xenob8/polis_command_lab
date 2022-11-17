@@ -15,11 +15,6 @@ public class BaseTest {
     private static final ChromeOptions options = new ChromeOptions().addArguments("--lang=ru");
     public MyDriver driver;
 
-    static {
-        System.setOut(new PrintStream(System.out, true, StandardCharsets.UTF_8));
-    }
-
-
     @BeforeEach
     public void enter() {
         driver = getNewDriver();
