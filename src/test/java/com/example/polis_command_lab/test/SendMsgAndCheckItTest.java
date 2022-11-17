@@ -1,5 +1,6 @@
 package com.example.polis_command_lab.test;
 
+import com.example.polis_command_lab.BotFactory;
 import com.example.polis_command_lab.page.LoginPage;
 import com.example.polis_command_lab.page.MessagePage;
 import com.example.polis_command_lab.page.UserPage;
@@ -12,10 +13,10 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 public class SendMsgAndCheckItTest extends BaseTest {
 
-    private static final TestBot SENDER = new TestBot("technoPol2", "technoPolis2022",
-            "Bot Sender");
-    private static final TestBot RECEIVER = new TestBot("technoPol30", "technoPolis2022",
-            "Bot Receiver");
+    private static final BotFactory BOT_FACTORY = new BotFactory();
+
+    private static final TestBot SENDER = BOT_FACTORY.get("SENDER");
+    private static final TestBot RECEIVER = BOT_FACTORY.get("RECEIVER");
 
 
     @ParameterizedTest
